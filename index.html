@@ -3,78 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GuessMaster</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .cover {
-            background-image: url('1726181890071468\
-8087082079373982.jpg');
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            color: white;
-            text-align: center;
-            background-size: cover;
-            background-position: center;
-        }
-        .cover h1 {
-            font-size: 3em;
-	    color: #000;
-        }
-        .cover p {
-            font-size: 1.5em;
-	    font-weight: bold;
-	    color: #000;
-        }
-        nav {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 1em;
-            text-align: right;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1em;
-        }
-        .btn-play {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-    </style>
+    <title>GuessMaster Game</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#how-to-play">How to Play</a>
-    </nav>
-    <div class="cover">
+    <header>
         <h1>GuessMaster</h1>
-        <p>Test Your Knowledge with the Ultimate Guessing Game!</p>
-	<div class="features">
-	  <h2>Features</h2>
-	  <p>Login Button</p>
-	  <p>Password Button</p>
-	  <p>User Image</p>
-	</div>
-	<div>
-	  <h2>About</h2>
-	  <p>This project was inspired by my interest in playing games</p>
-	</div>
-	<button class="btn-play" onclick="#">Play Now</button>
-    </div>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#play">Play</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="intro">
+        <h2>Welcome to GuessMaster</h2>
+        <p>Test your guessing skills and challenge yourself with fun and tricky questions!</p>
+        <button id="startButton">Start Game</button>
+    </section>
+
+    <section id="gameArea" class="hidden">
+        <h2>Guess the Answer</h2>
+        <p id="question"></p>
+        <input type="text" id="userGuess" placeholder="Enter your guess">
+        <button id="submitGuess">Submit Guess</button>
+        <p id="feedback"></p>
+        <button id="nextQuestion" class="hidden">Next Question</button>
+    </section>
+
+    <section id="gameOver" class="hidden">
+        <h2>Game Over!</h2>
+        <p>Your score: <span id="score"></span></p>
+        <button id="restartGame">Play Again</button>
+    </section>
+
+    <script src="game.js"></script>
 </body>
 </html>
