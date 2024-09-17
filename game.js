@@ -1,5 +1,5 @@
 // Generate random number for the game
-let randomNumber = Math.floor(Math.random() * 100) + 1;
+let randomNumber = Math.floor(Math.random() * 10) + 1;
 let attempts = 0;
 let loggedIn = false;
 let username = "";
@@ -18,8 +18,8 @@ const gameArea = document.getElementById("gameArea");
 submitGuessBtn.addEventListener("click", () => {
     const userGuess = Number(userGuessInput.value);
 
-    if (!userGuess || userGuess < 1 || userGuess > 100) {
-        feedbackElement.textContent = "Please enter a number between 1 and 100.";
+    if (!userGuess || userGuess < 1 || userGuess > 10) {
+        feedbackElement.textContent = "Please enter a number between 1 and 10.";
         return;
     }
 
@@ -36,7 +36,7 @@ submitGuessBtn.addEventListener("click", () => {
 
 // Play Again
 nextGameBtn.addEventListener("click", () => {
-    randomNumber = Math.floor(Math.random() * 100) + 1;
+    randomNumber = Math.floor(Math.random() * 10) + 1;
     attempts = 0;
     feedbackElement.textContent = "";
     nextGameBtn.classList.add("hidden");
