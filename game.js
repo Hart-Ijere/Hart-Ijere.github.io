@@ -1,32 +1,46 @@
+// Mock data for questions and answers
 const questions = [
-    { question: "What's the capital of France?", answer: "Paris" },
-    { question: "What's 2 + 2?", answer: "4" },
+    { question: "What is the capital of France?", answer: "Paris" },
+    { question: "What is 2 + 2?", answer: "4" },
     { question: "What is the largest mammal?", answer: "Blue whale" }
 ];
 
 let currentQuestionIndex = 0;
 let score = 0;
+let username = "";
 
-document.getElementById("startButton").addEventListener("click", startGame);
-document.getElementById("submitGuess").addEventListener("click", checkGuess);
-document.getElementById("nextQuestion").addEventListener("click", nextQuestion);
-document.getElementById("restartGame").addEventListener("click", restartGame);
+// DOM Elements
+const loginForm = document.getElementById("loginForm");
+const loginArea = document.getElementById("loginArea");
+const gameArea = document.getElementById("gameArea");
+const questionElement = document.getElementById("question");
+const feedbackElement = document.getElementById("feedback");
+const submitGuessBtn = document.getElementById("submitGuess");
+const nextQuestionBtn = document.getElementById("nextQuestion");
+const highScoreElement = document.getElementById("highScore");
+const scoreboardSection = document.getElementById("scoreboard");
 
-function startGame() {
-    document.getElementById("intro").classList.add("hidden");
-    document.getElementById("gameArea").classList.remove("hidden");
-    loadQuestion();
-}
+// Handle user login
+loginForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    username = document.getElementById("username").value.trim();
 
+    if (username) {
+        loginArea.classList.add("hidden");
+        gameArea.classList.remove("hidden");
+        loadQuestion();
+    }
+});
+
+// Load question
 function loadQuestion() {
-    const questionElement = document.getElementById("question");
     questionElement.textContent = questions[currentQuestionIndex].question;
 }
 
-function checkGuess() {
+// Handle guess submission
+submitGuessBtn.addEventListener("click", () => {
     const userGuess = document.getElementById("userGuess").value.trim();
-    const feedbackElement = document.getElementById("feedback");
-    
+
     if (userGuess.toLowerCase() === questions[currentQuestionIndex].answer.toLowerCase()) {
         feedbackElement.textContent = "Correct!";
         score++;
@@ -34,31 +48,26 @@ function checkGuess() {
         feedbackElement.textContent = "Incorrect!";
     }
 
-    document.getElementById("nextQuestion").classList.remove("hidden");
-}
+    nextQuestionBtn.classList.remove("hidden");
+});
 
-function nextQuestion() {
+// Move to next question or end game
+nextQuestionBtn.addEventListener("click", () => {
     currentQuestionIndex++;
 
     if (currentQuestionIndex < questions.length) {
         loadQuestion();
-        document.getElementById("feedback").textContent = "";
+        feedbackElement.textContent = "";
+        nextQuestionBtn.classList.add("hidden");
         document.getElementById("userGuess").value = "";
-        document.getElementById("nextQuestion").classList.add("hidden");
     } else {
         endGame();
     }
-}
+});
 
+// End game and show score
 function endGame() {
-    document.getElementById("gameArea").classList.add("hidden");
-    document.getElementById("gameOver").classList.remove("hidden");
-    document.getElementById("score").textContent = score;
-}
-
-function restartGame() {
-    currentQuestionIndex = 0;
-    score = 0;
-    document.getElementById("gameOver").classList.add("hidden");
-    document.getElementById("intro").classList.remove("hidden");
+    gameArea.classList.add("hidden");
+    scoreboardSection.classList.remove("hidden");
+    highScoreElement.textContent = score;
 }

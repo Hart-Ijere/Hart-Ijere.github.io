@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GuessMaster Game</title>
+    <title>GuessMaster</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,18 +11,22 @@
         <h1>GuessMaster</h1>
         <nav>
             <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#play">Play</a></li>
+                <li><a href="#gameArea">Play</a></li>
+                <li><a href="#scoreboard">Scoreboard</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="intro">
-        <h2>Welcome to GuessMaster</h2>
-        <p>Test your guessing skills and challenge yourself with fun and tricky questions!</p>
-        <button id="startButton">Start Game</button>
+    <!-- Login Section -->
+    <section id="loginArea" class="center">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Enter your username" required>
+            <button type="submit">Login</button>
+        </form>
     </section>
 
+    <!-- Game Area -->
     <section id="gameArea" class="hidden">
         <h2>Guess the Answer</h2>
         <p id="question"></p>
@@ -32,10 +36,10 @@
         <button id="nextQuestion" class="hidden">Next Question</button>
     </section>
 
-    <section id="gameOver" class="hidden">
-        <h2>Game Over!</h2>
-        <p>Your score: <span id="score"></span></p>
-        <button id="restartGame">Play Again</button>
+    <!-- Scoreboard Section -->
+    <section id="scoreboard" class="hidden">
+        <h2>Your Score</h2>
+        <p>High score: <span id="highScore"></span></p>
     </section>
 
     <script src="game.js"></script>

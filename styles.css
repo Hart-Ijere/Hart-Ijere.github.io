@@ -1,7 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9;
     text-align: center;
+    margin: 0;
 }
 
 header {
@@ -22,12 +23,8 @@ nav ul li a {
     text-decoration: none;
 }
 
-#gameArea, #gameOver {
-    margin-top: 2rem;
-}
-
-.hidden {
-    display: none;
+.center {
+    margin-top: 50px;
 }
 
 button {
@@ -40,4 +37,8 @@ button {
 
 button:hover {
     background-color: #218838;
+}
+
+.hidden {
+    display: none;
 }
