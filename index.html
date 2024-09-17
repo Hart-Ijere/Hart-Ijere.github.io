@@ -18,7 +18,7 @@
     </header>
 
     <!-- Login Section -->
-    <section id="loginArea" class="center">
+    <section id="loginArea" class="hidden">
         <h2>Login</h2>
         <form id="loginForm">
             <input type="text" id="username" placeholder="Enter your username" required>
@@ -27,13 +27,14 @@
     </section>
 
     <!-- Game Area -->
-    <section id="gameArea" class="hidden">
-        <h2>Guess the Answer</h2>
-        <p id="question"></p>
-        <input type="text" id="userGuess" placeholder="Enter your guess">
+    <section id="gameArea">
+        <h2>Guess the Number</h2>
+        <p>Enter a number between 1 and 100:</p>
+        <input type="number" id="userGuess" min="1" max="100" placeholder="Enter your guess">
         <button id="submitGuess">Submit Guess</button>
         <p id="feedback"></p>
-        <button id="nextQuestion" class="hidden">Next Question</button>
+        <button id="nextGame" class="hidden">Play Again</button>
+        <button id="loginPrompt">Log In to Track Your Progress</button>
     </section>
 
     <!-- Scoreboard Section -->

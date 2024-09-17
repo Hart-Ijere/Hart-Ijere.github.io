@@ -23,10 +23,6 @@ nav ul li a {
     text-decoration: none;
 }
 
-.center {
-    margin-top: 50px;
-}
-
 button {
     background-color: #28a745;
     color: white;
@@ -41,4 +37,8 @@ button:hover {
 
 .hidden {
     display: none;
+}
+
+.center {
+    margin-top: 50px;
 }
